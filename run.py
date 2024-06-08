@@ -8,7 +8,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 
 
-def main(data_dir, input_shape, num_anchors, epochs=1, batch_size=1):
+def main(data_dir, input_shape, num_anchors, batch_size=1, epochs=1):
 
     image_resize = input_shape[0:2][::-1]  # h x w  ->  w x h
 
@@ -56,8 +56,8 @@ if __name__ == '__main__':
     parser.add_argument('--data_dir', type=str, help='Directory containing the dataset')
     parser.add_argument('--input_shape', type=int, nargs=3, default=(216, 384, 3), help='Input shape of the model (height, width, channels)')
     parser.add_argument('--num_anchors', type=int, default=2, help='Number of anchor boxes')
-    parser.add_argument('--epochs', type=int, default=1, help='Number of epochs for training')
     parser.add_argument('--batch_size', type=int, default=1, help='Batch size for training')
+    parser.add_argument('--epochs', type=int, default=1, help='Number of epochs for training')
 
     args = parser.parse_args()
 
@@ -81,8 +81,8 @@ if __name__ == '__main__':
         data_dir=data_dir,
         input_shape=input_shape,
         num_anchors=num_anchors,
+        batch_size=batch_size,
         epochs=epochs,
-        batch_size=batch_size
     )
 
 

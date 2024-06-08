@@ -173,7 +173,6 @@ class ImageAnnotator:
                     self.label = self.labels[(self.labels.index(self.label) + 1) % len(self.labels)]
                 cv2.imshow("Image", self.img_copy)
 
-
         cv2.destroyAllWindows()
 
     def save_annotations(self):
