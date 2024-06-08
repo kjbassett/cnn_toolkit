@@ -23,7 +23,7 @@ class YoloDataGenerator(Sequence):
             anchor_size = int(anchor_diff * (n + 0.5))
             anchors.append([anchor_size / grid_cell_size[1], anchor_size / grid_cell_size[0]])
 
-        self.anchors = anchors
+        self.anchors = np.array(anchors)
         self.num_samples = num_samples
 
     def __len__(self):
@@ -39,7 +39,7 @@ class YoloDataGenerator(Sequence):
             image, annotations = self.generate_image_and_annotations()
             x[i] = image
             # Assuming create_target_tensor is implemented elsewhere and correctly handles the conversion
-            y[i] = create_target_tensor(self.image_shape[0], self.image_shape[1], self.grid_shape, self.num_anchors,
+            y[i] = create_target_tensor(self.image_shape[0], self.image_shape[1], self.grid_shape,
                                         self.classes, annotations, self.anchors)
 
         return x, y
@@ -63,9 +63,9 @@ class YoloDataGenerator(Sequence):
             else:
 
                 if shape_type == 'circle':
-                    self.generate_circle(image, size, x, y)
+                    generate_circle(image, size, x, y)
                 elif shape_type == 'square':  # square
-                    self.generate_square(image, size, x, y)
+                    generate_square(image, size, x, y)
                 else:
                     raise ValueError(f'Invalid shape type: {shape_type}')
                 annotations[shape_type].append([x, y, size, size])

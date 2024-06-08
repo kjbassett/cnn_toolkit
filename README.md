@@ -8,11 +8,11 @@ Use this file to create a CNN from a dataset of annotated images.
 
 python run.py --data_dir "path/to/your/data" --input_shape 1080 1920 3 --num_anchors 3 --batch_size 1 --epochs 30
 
-2. run_test.py
+2. run_yolo_tester.py
 
 Developers use this file to create a CNN and generate an indeifinte amount of test data for it.
 
-python run_test.py --input_shape 200 200 3 --num_anchors 2 --num_samples 30 --batch_size 2 --epochs 40000
+python run_yolo_tester.py --input_shape 200 200 3 --num_anchors 2 --num_samples 30 --batch_size 2 --epochs 40000
 
 3. gpu_test.py
 
