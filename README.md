@@ -12,7 +12,7 @@ python run.py --data_dir "path/to/your/data" --input_shape 1080 1920 3 --num_anc
 
 Developers use this file to create a CNN and generate an indeifinte amount of test data for it.
 
-python run.py --input_shape 200 200 3 --num_anchors 2 --num_samples 30 --batch_size 2 --epochs 40000
+python run_test.py --input_shape 200 200 3 --num_anchors 2 --num_samples 30 --batch_size 2 --epochs 40000
 
 3. gpu_test.py
 
